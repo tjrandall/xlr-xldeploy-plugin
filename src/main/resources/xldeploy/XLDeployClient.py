@@ -106,6 +106,12 @@ class XLDeployClient(object):
         deploymentPrepareUpdateUrl = "/deployit/deployment/prepare/update?version=%s&deployedApplication=%s" % (deploymentPackage, "%s/%s" % (environment, deploymentPackage.rsplit('/',2)[1]))
         deploymentPrepareUpdate_response = self.httpRequest.get(deploymentPrepareUpdateUrl, contentType='application/xml')
         return deploymentPrepareUpdate_response.getResponse()
+    
+    # GET /deployment/prepare/undeploy
+    def deploymentPrepareUndeploy(self, deploymentPackage, environment):
+        deploymentPrepareUpdateUrl = "/deployit/deployment/prepare/undeploy?deployedApplication=%s" % ("%s/%s" % (environment, deploymentPackage.rsplit('/',2)[1]))
+        deploymentPrepareUpdate_response = self.httpRequest.get(deploymentPrepareUpdateUrl, contentType='application/xml')
+        return deploymentPrepareUpdate_response.getResponse()
 
     def deploymentPrepareInitial(self, deploymentPackage, environment):
         deploymentPrepareInitialUrl = "/deployit/deployment/prepare/initial?version=%s&environment=%s" % (deploymentPackage, environment)

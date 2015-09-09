@@ -60,5 +60,16 @@
         <property name="packageId" category="output" label="Package ID" />
     </type>
 
+
+    <type type="xldeploy.UndeployTask" extends="xldeploy.TaskRunningTask" description="Executes an undeployment in XL Deploy">
+        <property name="scriptLocation" default="xldeploy/undeployTask.py" hidden="true" />    
+        <property name="deploymentPackage" category="input" label="Deployment Package" required="true" />
+        <property name="environment" category="input" label="Environment" default="" required="true" />
+        <property name="orchestrators" category="input" label="Orchestrators" default="" required="false" />
+        <property name="deployedApplicationProperties" category="input" default="" required="false" description="A dictionary with key value pairs" />
+        <property name="deployedProperties" category="input" default="" required="false" description="A dictionary with key value pairs" />
+        <property name="rollbackOnError" category="input" kind="boolean" />
+    </type>
+
 	<type type="xldeploy.Server" extends="configuration.HttpConnection"/>
 </synthetic>
